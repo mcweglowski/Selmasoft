@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.API", "Selmasoft.API\Payments.API.csproj", "{8FCB01B6-7563-4EBF-AC23-3BE8F61A822C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.API", "Selmasoft.API\Payments.API.csproj", "{8FCB01B6-7563-4EBF-AC23-3BE8F61A822C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.Contracts", "Payments.Contracts\Payments.Contracts.csproj", "{5195E09C-0B02-4B74-AFB2-267EEF8A40B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{27ECFA33-5E96-43E3-9CE5-DF3C41CFA530}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestCardPayment.Consumer", "Consumers\RequestCardPayment.Consumer\RequestCardPayment.Consumer.csproj", "{1A1F6A61-3161-4F9C-8391-19C9DC1F6372}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,20 @@ Global
 		{8FCB01B6-7563-4EBF-AC23-3BE8F61A822C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FCB01B6-7563-4EBF-AC23-3BE8F61A822C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FCB01B6-7563-4EBF-AC23-3BE8F61A822C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5195E09C-0B02-4B74-AFB2-267EEF8A40B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5195E09C-0B02-4B74-AFB2-267EEF8A40B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5195E09C-0B02-4B74-AFB2-267EEF8A40B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5195E09C-0B02-4B74-AFB2-267EEF8A40B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1F6A61-3161-4F9C-8391-19C9DC1F6372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1F6A61-3161-4F9C-8391-19C9DC1F6372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1F6A61-3161-4F9C-8391-19C9DC1F6372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1F6A61-3161-4F9C-8391-19C9DC1F6372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A1F6A61-3161-4F9C-8391-19C9DC1F6372} = {27ECFA33-5E96-43E3-9CE5-DF3C41CFA530}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3FDBDFF-5B58-4682-9D3D-AE9CADCA1641}

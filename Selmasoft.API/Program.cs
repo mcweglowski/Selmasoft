@@ -1,3 +1,6 @@
+using MassTransit;
+using Payments.Contracts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.ConfigureLogging(logging => 
@@ -13,6 +16,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMassTransit(cfg => 
+{
+    cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq());
+    cfg.AddRequestClient<CardPaymentRequest>();
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,5 +36,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();
