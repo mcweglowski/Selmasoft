@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Payments.API.Requests;
 using Payments.Contracts;
-using Payments.Contracts.Responses;
 
 namespace Payments.API.Controllers;
 

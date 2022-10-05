@@ -1,11 +1,6 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.Logging;
 using Payments.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RequestCardPayment.Consumer.Consumers;
 
@@ -22,6 +17,11 @@ public class CardPaymentRequestConsumer : IConsumer<CardPaymentRequest>
     {
         _logger.LogInformation($"CardPaymentRequestConsumer: {context.Message.Amount}, {context.Message.CardNumber}, {context.Message.Amount}");
 
-        await Task.CompletedTask;
+        await context.RespondAsync<CardPaymentConsumerResponse>(new 
+        {
+            Amount = 20,
+            CardNumber = "1234",
+            Name = "Marcin"
+        });
     }
 }

@@ -6,3 +6,10 @@ public interface CardPaymentRequest
     public string CardNumber { get; }
     public string Name { get; }
 }
+
+public interface CardPaymentConsumerResponse
+{
+    public decimal Amount { get; }
+    public string CardNumber { get; }
+    public string Name { get; }
+}
