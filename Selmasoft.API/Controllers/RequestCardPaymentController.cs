@@ -22,13 +22,14 @@ public class RequestCardPaymentController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> MakePayment([FromBody] CardPayment payment)
     {
-        _logger.LogInformation("MakePayment");
+        _logger.LogInformation($"MakePayment: {payment.Id}, {payment.Name}, {payment.BankAccount}, {payment.Amount}");
 
         var response = await _cardPaymentRequestClient.GetResponse<CardPaymentConsumerResponse>(new
         {
-            Amount = 20,
-            CardNumber = "1234",
-            Name = "Marcin",
+            Id = payment.Id,
+            Amount = payment.Amount,
+            BankAccount = payment.BankAccount,
+            Name = payment.Name,
         });
 
         return Ok(response);

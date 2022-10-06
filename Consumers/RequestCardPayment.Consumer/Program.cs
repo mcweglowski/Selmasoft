@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RequestCardPayment.Consumer;
 using RequestCardPayment.Consumer.Consumers;
+using RequestCardPayment.Consumer.Support;
 
 var builder = new HostBuilder()
     .ConfigureServices(services =>
@@ -20,6 +21,8 @@ var builder = new HostBuilder()
                 cfg.ConfigureEndpoints(provider);
             }));
         });
+
+        services.AddSingleton<CounterService>();
     })
     .ConfigureLogging((hostingContext, logging) =>
     {
