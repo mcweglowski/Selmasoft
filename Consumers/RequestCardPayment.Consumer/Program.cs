@@ -20,8 +20,6 @@ var builder = new HostBuilder()
                 cfg.ConfigureEndpoints(provider);
             }));
         });
-
-        services.AddHostedService<MassTransitConsoleHostedService>();
     })
     .ConfigureLogging((hostingContext, logging) =>
     {
