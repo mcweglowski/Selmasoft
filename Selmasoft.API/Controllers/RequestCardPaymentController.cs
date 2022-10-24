@@ -22,7 +22,7 @@ public class RequestCardPaymentController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> MakePayment([FromBody] CardPayment payment)
     {
-        _logger.LogInformation($"MakePayment: {payment.Id}, {payment.Name}, {payment.BankAccount}, {payment.Amount}");
+        _logger.LogInformation($"MakeCardPayment: {payment.Id}, {payment.Name}, {payment.BankAccount}, {payment.Amount}");
 
         var response = await _cardPaymentRequestClient.GetResponse<CardPaymentConsumerResponse>(new
         {

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RequestCardPayment.Consumer.Consumers;
+using RequestCashPayment.Consumer.Consumers;
 using Shared.Consumer;
 
 var builder = new HostBuilder()
@@ -12,10 +13,10 @@ var builder = new HostBuilder()
     {
         services.TryAddSingleton(KebabCaseEndpointNameFormatter.Instance);
 
-        services.AddMassTransit(cfg =>
+        services.AddMassTransit(cfg => 
         {
-            cfg.AddConsumersFromNamespaceContaining<CardPaymentRequestConsumer>();
-            cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+            cfg.AddConsumersFromNamespaceContaining<CashPaymentRequestConsumer>();
+            cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg => 
             {
                 cfg.ConfigureEndpoints(provider);
             }));
@@ -23,7 +24,7 @@ var builder = new HostBuilder()
 
         services.AddSingleton<CounterService>();
     })
-    .ConfigureLogging((hostingContext, logging) =>
+    .ConfigureLogging((hostingContext, logging) => 
     {
         logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
         logging.AddConsole();
