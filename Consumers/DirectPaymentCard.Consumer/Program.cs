@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DirectPaymentCard.Consumer.Consumers;
 using MassTransit;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
