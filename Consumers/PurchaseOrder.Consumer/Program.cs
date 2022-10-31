@@ -29,7 +29,7 @@ var builder = new HostBuilder()
 
                     endpointConfigurator.Bind<BaseIntegrationEvent>(c =>
                     {
-                        c.RoutingKey = string.Format(CultureInfo.InvariantCulture, "{0}", "selmasoft.payment.card");
+                        c.RoutingKey = string.Format(CultureInfo.InvariantCulture, "{0}", "selmasoft.payment.purchase");
                         c.ExchangeType = ExchangeType.Topic;
                     });
 
