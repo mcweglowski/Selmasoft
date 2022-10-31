@@ -2,11 +2,11 @@
 
 namespace Payments.Contracts.IntegrationEvents;
 
-public abstract record BaseIntegrationEvent
+public record BaseIntegrationEvent
 {
     public Guid Id { get; }
     public string Name { get; set; }
     public decimal Amount { get; set; }
 
-    public abstract string EventType { get; }
+    public string EventType { get; set; }
 }

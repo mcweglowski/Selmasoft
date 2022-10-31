@@ -4,5 +4,10 @@ namespace Payments.Contracts.IntegrationEvents;
 
 public record PaymentPurchaseIntegrationEvent : BaseIntegrationEvent
 {
-    public override string EventType => "selmasoft.payment.purchase";
+    public PaymentPurchaseIntegrationEvent()
+    {
+        EventType = "selmasoft.payment.purchase";
+    }
+
+    //public override string EventType => "selmasoft.payment.purchase";
 }

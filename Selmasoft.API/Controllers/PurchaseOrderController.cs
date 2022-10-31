@@ -5,11 +5,11 @@ namespace Payments.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class QueuePurchaseOrderController : ControllerBase
+public class PurchaseOrderController : ControllerBase
 {
     private ILogger _logger;
 
-    public QueuePurchaseOrderController(ILogger<QueuePurchaseOrderController> logger)
+    public PurchaseOrderController(ILogger<PurchaseOrderController> logger)
     {
         _logger = logger;
     }

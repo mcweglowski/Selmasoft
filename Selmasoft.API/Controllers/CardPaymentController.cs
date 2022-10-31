@@ -7,12 +7,12 @@ namespace Payments.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class QueueCardPaymentController : ControllerBase
+public class CardPaymentController : ControllerBase
 {
     private ILogger _logger;
     private IBus _bus;
 
-    public QueueCardPaymentController(ILogger<QueueCardPaymentController> logger,
+    public CardPaymentController(ILogger<CardPaymentController> logger,
         IBus bus)
     {
         _logger = logger;
@@ -24,11 +24,13 @@ public class QueueCardPaymentController : ControllerBase
     {
         _logger.LogInformation($"{payment.Name} {payment.Amount}");
 
-        await _bus.Publish((BaseIntegrationEvent)new PaymentCardIntegrationEvent()
+        var @event = (BaseIntegrationEvent) new PaymentCardIntegrationEvent()
         {
             Name = payment.Name,
             Amount = payment.Amount
-        });;
+        };
+
+        await _bus.Publish(@event);
         
         return Ok(payment);
     }
