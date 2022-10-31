@@ -1,6 +1,8 @@
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Payments.Contracts;
+using Payments.Contracts.IntegrationEvents;
+using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +17,19 @@ builder.Services.TryAddSingleton(KebabCaseEndpointNameFormatter.Instance);
 // Add services to the container.
 builder.Services.AddMassTransit(cfg =>
 {
-    cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq());
+    cfg.UsingRabbitMq((_, config) => 
+    {        
+        config.Send<BaseIntegrationEvent>(sendTopology => {
+            sendTopology.UseRoutingKeyFormatter(x => x.Message.EventType);
+        });
+
+        config.Publish<BaseIntegrationEvent>(publishTopology => 
+        {
+            publishTopology.ExchangeType = ExchangeType.Topic;
+        });
+    });
+
+    //cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq());
     cfg.AddRequestClient<CardPaymentRequest>();
     cfg.AddRequestClient<CashPaymentRequest>();
     cfg.AddRequestClient<DirectCardPaymentRequest>();

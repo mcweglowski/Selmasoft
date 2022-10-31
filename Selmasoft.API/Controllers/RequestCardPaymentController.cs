@@ -20,7 +20,7 @@ public class RequestCardPaymentController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> MakePayment([FromBody] CardPayment payment)
+    public async Task<IActionResult> MakePayment([FromBody] CardPaymentRequest payment)
     {
         _logger.LogInformation($"MakeCardPayment: {payment.Id}, {payment.Name}, {payment.BankAccount}, {payment.Amount}");
 
