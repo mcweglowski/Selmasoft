@@ -15,6 +15,6 @@ public class BaseIntegrationEventConsumer : IConsumer<BaseIntegrationEvent>
 
     public async Task Consume(ConsumeContext<BaseIntegrationEvent> context)
     {
-        _logger.LogInformation(context.Message.EventType);
+        _logger.LogInformation($"{context.Message.Name} {context.Message.Amount}");
     }
 }
