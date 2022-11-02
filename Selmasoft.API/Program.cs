@@ -29,7 +29,6 @@ builder.Services.AddMassTransit(cfg =>
         });
     });
 
-    //cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq());
     cfg.AddRequestClient<CardPaymentRequest>();
     cfg.AddRequestClient<CashPaymentRequest>();
     cfg.AddRequestClient<DirectCardPaymentRequest>();
