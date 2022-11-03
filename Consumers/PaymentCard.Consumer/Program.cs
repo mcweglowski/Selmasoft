@@ -25,8 +25,6 @@ var builder = new HostBuilder()
                     endpointConfigurator.ConfigureConsumeTopology = false;
                     endpointConfigurator.AutoDelete = true;
 
-                    endpointConfigurator.ExchangeType = ExchangeType.Fanout;
-
                     endpointConfigurator.Bind<BaseIntegrationEvent>(c =>
                     {
                         c.RoutingKey = string.Format(CultureInfo.InvariantCulture, "{0}", "selmasoft.payment.card");
